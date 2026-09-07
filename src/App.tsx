@@ -1,19 +1,19 @@
-import { Header } from './components/layout/Header'
-import { RegisterSidebar } from './components/layout/RegisterSidebar'
+import { Outlet } from './components/layout/Outlet'
 import { HomePage } from './pages/HomePage'
 import { Register } from './features/register/Register'
-import './App.css'
+import { Method } from './features/method/Method'
+import { RecordCard } from './features/record-card/RecordCard'
+import { Commissions } from './features/commissions/Commissions'
 
 function App() {
   return (
-    <div className="site-shell">
-      <RegisterSidebar />
-      <div className="site-content">
-        <Header />
+    <Outlet>
         <HomePage />
         <Register />
-      </div>
-    </div>
+        <Method />
+        <RecordCard />
+        <Commissions />
+    </Outlet>
   )
 }
 
