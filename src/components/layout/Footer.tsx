@@ -1,29 +1,24 @@
+import { BrandMark } from '../common/BrandMark'
+
 const links = [
-  ['The Register', '#the-register'],
-  ['Method', '#method'],
-  ['Available', '#available'],
-  ['Commissions', '#commissions'],
-  ['Where we look', '#where-we-look'],
-  ['Care & repair', '#care-repair'],
+  ['The register', '#register'], ['Method', '#method'], ['Available', '#available'], ['Commissions', '#commission'], ['Where we look', '#top'], ['Care & repair', '#top'],
 ] as const
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-ink)] text-[var(--color-cream)] [font-family:var(--font-mono)]">
-      <div className="grid gap-8 px-6 py-10 sm:px-10 lg:grid-cols-[220px_1fr_auto] lg:items-start lg:gap-[clamp(32px,5vw,98px)] lg:px-[5.3vw] lg:py-18">
+    <footer className="bg-[var(--color-bitumen)] text-[#8E8478]">
+      <div className="grid gap-7 px-[var(--page-gutter)] py-[clamp(40px,5vw,64px)] lg:grid-cols-[auto_1fr_auto] lg:gap-10">
         <div>
-          <a className="relative inline-block text-3xl leading-[.75] tracking-[-1.5px] uppercase [font-family:var(--font-display)]" href="/" aria-label="Kaath home">Kaath<span className="absolute right-0 -bottom-1 left-0 h-px bg-[var(--color-blue)]" /></a>
-          <p className="mt-7 mb-0 text-xs tracking-[2px] uppercase text-[var(--color-ochre)]">Salvaged timber · Mumbai</p>
+          <a href="#top" aria-label="Kaath — home"><BrandMark muted /></a>
+          <p className="mt-3.5 text-[11px] tracking-[.18em] uppercase text-[#6B6257] [font-family:var(--font-mono)]">Salvaged timber · Mumbai</p>
         </div>
-        <nav className="flex flex-wrap gap-x-7 gap-y-4 pt-1.5 text-xs tracking-[1.5px] uppercase text-[var(--color-ochre)] lg:gap-x-[clamp(22px,3vw,50px)]" aria-label="Footer navigation">
-          {links.map(([label, href]) => <a className="hover:text-[var(--color-cream)]" href={href} key={label}>{label}</a>)}
+        <nav className="flex flex-wrap gap-x-[30px] gap-y-3" aria-label="Footer navigation">
+          {links.map(([label, href]) => <a className="text-[11px] tracking-[.14em] uppercase transition-colors hover:text-[var(--color-chalk)] [font-family:var(--font-mono)]" href={href} key={label}>{label}</a>)}
         </nav>
-        <a className="inline-flex min-h-15 items-center justify-center border border-[var(--color-line)] px-8 text-xs tracking-[1.7px] uppercase hover:border-[var(--color-cream)]" href="mailto:hello@kaath.in?subject=Join%20the%20list">Join the list</a>
+        <a className="inline-flex self-start border border-[#5A5145] px-[26px] py-[15px] text-[11px] tracking-[.16em] uppercase text-[#C3B8A8] transition-colors hover:border-[var(--color-chalk)] hover:text-[var(--color-chalk)] [font-family:var(--font-mono)]" href="mailto:hello@kaath.in?subject=Join%20the%20list">Join the list</a>
       </div>
-      <div className="grid gap-4 border-t border-[var(--color-line)] px-6 py-6 text-[10px] tracking-[1.5px] uppercase text-[var(--color-ochre)] sm:px-10 md:grid-cols-3 md:items-center md:px-[5.3vw]">
-        <p className="m-0">© 2026 Kaath</p>
-        <p className="m-0 text-left md:text-center">Records shown are placeholders for design</p>
-        <p className="m-0 text-left md:text-right">Nothing here is reissued</p>
+      <div className="flex flex-wrap justify-between gap-5 border-t border-[#332D26] px-[var(--page-gutter)] pt-4 pb-[30px] text-[10px] tracking-[.12em] uppercase text-[#6B6257] [font-family:var(--font-mono)]">
+        <span>© 2026 Kaath</span><span>Records shown are placeholders for design</span><span>Nothing here is reissued</span>
       </div>
     </footer>
   )

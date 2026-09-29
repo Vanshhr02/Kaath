@@ -1,10 +1,10 @@
 import type { RegisterRecord } from '../types'
 
 export const registerRecords: RegisterRecord[] = [
-  { number: '07', building: 'Fanaswadi Chawl', locality: 'Girgaon, Mumbai', builtToDown: '1931 — 2026', species: 'Burma teak', status: 'in-salvage' },
-  { number: '06', building: 'Sarabhai Mill Shed', locality: 'Naroda, Ahmedabad', builtToDown: '1948 — 2025', species: 'Mill teak', status: 'open' },
-  { number: '05', building: 'Kothari Bungalow', locality: 'Alibaug', builtToDown: '1962 — 2025', species: 'Jackwood, teak', status: 'closed' },
-  { number: '04', building: 'Alang Deck Lot 22', locality: 'Bhavnagar', builtToDown: '1971 — 2025', species: 'Ship teak', status: 'closed' },
-  { number: '03', building: 'Chettinad Door Set', locality: 'Karaikudi', builtToDown: 'c.1910 — 2025', species: 'Carved teak', status: 'closed' },
-  { number: '02', building: 'Byculla Godown', locality: 'Byculla, Mumbai', builtToDown: '1954 — 2025', species: 'Teak, salwood', status: 'closed' },
+  { number: '07', building: 'Fanaswadi Chawl', locality: 'Girgaon, Mumbai', builtToDown: '1931 — 2026', species: 'Burma teak', status: 'in-salvage', pieces: [['Dining table','commissioned'],['Bench','in build'],['Side tables ×2','in build'],['Offcut boards ×24','planned']], note: 'Nine door frames still uncut. Waiting on fumigation before the first pass.' },
+  { number: '06', building: 'Sarabhai Mill Shed', locality: 'Naroda, Ahmedabad', builtToDown: '1948 — 2025', species: 'Mill teak', status: 'open', pieces: [['Truss bench','available'],['Bay side table','available'],['Offcut boards ×6','available'],['Console','sold'],['Wall shelf ×3','sold']], note: 'North-bay trusses came out clean. Eight pieces of twenty-two remain.' },
+  { number: '05', building: 'Kothari Bungalow', locality: 'Alibaug', builtToDown: '1962 — 2025', species: 'Jackwood, teak', status: 'closed', pieces: [['Dining table','delivered'],['Headboard','delivered'],['Stools ×4','delivered'],['Trays ×12','delivered']], note: 'Closed December 2025. Every board accounted for.' },
+  { number: '04', building: 'Alang Deck Lot 22', locality: 'Bhavnagar', builtToDown: '1971 — 2025', species: 'Ship teak', status: 'closed', pieces: [['Low table','delivered'],['Coaster sets ×20','delivered'],['Wall panel','delivered']], note: 'Heavy bolt damage. Roughly half the lot was rejected before cutting.' },
+  { number: '03', building: 'Chettinad Door Set', locality: 'Karaikudi', builtToDown: 'c.1910 — 2025', species: 'Carved teak', status: 'closed', pieces: [['Headboard','delivered'],['Console','delivered'],['Mirror frames ×2','delivered']], note: 'Bought as a clearance, not a demolition. Carving left intact.' },
+  { number: '02', building: 'Byculla Godown', locality: 'Byculla, Mumbai', builtToDown: '1954 — 2025', species: 'Teak, salwood', status: 'closed', pieces: [['Workbench','delivered'],['Shelving run','delivered'],['Offcut boards ×18','delivered']], note: 'The first building. Most of what we know about inspection came from getting this one wrong.' },
 ]

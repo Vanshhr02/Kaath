@@ -6,9 +6,9 @@ import { RegisterSidebar } from './RegisterSidebar'
 
 export function Outlet({ children }: PropsWithChildren) {
   return (
-    <div className="min-h-screen bg-[var(--color-ink)] text-[var(--color-cream)]" style={themeCssVariables}>
+    <div className="min-h-screen bg-[var(--color-kraft)] text-[var(--color-ink)] [font-family:var(--font-body)] text-[length:var(--font-size-body)] leading-[1.6] antialiased" style={themeCssVariables}>
       <RegisterSidebar />
-      <div className="min-h-screen ml-[60px] md:ml-[94px]">
+      <div className="min-h-screen md:pl-[var(--rail-width)]">
         <Header />
         {children}
         <Footer />

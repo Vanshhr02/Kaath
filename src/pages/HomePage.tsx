@@ -1,49 +1,40 @@
+import { motion, useReducedMotion } from 'motion/react'
+
 const recordRows = [
-  ['Built', '1931'],
-  ['Taken down', 'Mar 2026'],
-  ['Species', 'Burma teak'],
-  ['Recovered', '34 joists, 9 doors'],
-  ['Pieces planned', '11'],
-  ['List', '218 waiting'],
-]
+  ['Built', '1931'], ['Taken down', 'Mar 2026'], ['Species', 'Burma teak'], ['Recovered', '34 joists, 9 doors'], ['Pieces planned', '11'], ['List', '218 waiting'],
+] as const
 
 export function HomePage() {
+  const reduceMotion = useReducedMotion()
+  const reveal = (delay: number) => reduceMotion ? {} : { initial: { opacity: 0, y: 18 }, animate: { opacity: 1, y: 0 }, transition: { duration: .65, delay, ease: [0.2, 0.8, 0.2, 1] as const } }
+
   return (
-    <main className="relative flex min-h-[calc(100svh-143px)] flex-col items-start justify-between gap-12 overflow-hidden px-6 py-10 sm:px-10 md:min-h-[calc(100svh-167px)] md:gap-20 md:px-[clamp(32px,5.3vw,98px)] md:py-[76px] lg:flex-row lg:items-center" id="available">
-      <section className="relative z-1 max-w-[810px]" aria-labelledby="home-title">
-        <p className="mb-6 text-[10px] leading-7 tracking-[2.2px] uppercase text-[var(--color-ochre)] [font-family:var(--font-mono)] md:text-[13px] md:leading-normal">Record no. 07 <i className="px-1 not-italic md:px-[13px]">·</i> Girgaon, Mumbai <i className="px-1 not-italic md:px-[13px]">·</i> 1931–2026 <i className="px-1 not-italic md:px-[13px]">·</i> Burma teak</p>
-        <h1 id="home-title" className="m-0 text-[clamp(58px,16vw,88px)] leading-[.74] tracking-[-2px] uppercase [font-family:var(--font-display)] lg:text-[clamp(80px,7.25vw,132px)] lg:tracking-[-3px]">
-          We don’t sell<br />
-          furniture. We<br />
-          sell the <em className="not-italic text-[var(--color-blue)]">building</em><br />
-          it came from.
-        </h1>
-        <p className="mt-8 max-w-[680px] text-base leading-7 text-[#d7c3a2] [font-family:var(--font-serif)] md:text-lg md:leading-[1.7]">
-          Every piece is cut from one named building, on a date we can tell you, and is numbered against it. When the wood from that building runs out,<br className="hidden md:block" /> the record closes. Nothing is reissued, and nothing is ever made twice.
-        </p>
-        <div className="mt-9 flex flex-wrap gap-3.5">
-          <a className="inline-flex min-h-12 items-center justify-center border border-[var(--color-cream)] bg-[var(--color-cream)] px-6 text-xs tracking-[1.5px] uppercase text-[#29221c] [font-family:var(--font-mono)] hover:outline hover:outline-1 hover:outline-offset-3 hover:outline-[var(--color-blue)]" href="#the-register">Open the register</a>
-          <a className="inline-flex min-h-12 items-center justify-center border border-[#63574a] px-6 text-xs tracking-[1.5px] uppercase text-[#e1c9a4] [font-family:var(--font-mono)] hover:outline hover:outline-1 hover:outline-offset-3 hover:outline-[var(--color-blue)]" href="#join-list">Join the list for Fanaswadi</a>
+    <main id="top">
+      <section className="relative overflow-hidden bg-[var(--color-bitumen)] text-[var(--color-chalk)]">
+        <div className="grid items-end gap-10 px-[var(--page-gutter)] pt-[clamp(48px,7vw,86px)] pb-[clamp(52px,7vw,78px)] lg:grid-cols-[1fr_300px] lg:gap-14">
+          <div>
+            <motion.p {...reveal(.05)} className="mb-[26px] text-[11px] tracking-[.18em] uppercase text-[#93887A] [font-family:var(--font-mono)]">Record No. 07 · Girgaon, Mumbai · 1931–2026 · Burma teak</motion.p>
+            <motion.h1 {...reveal(.12)} className="mb-[30px] max-w-[14ch] text-[length:var(--font-size-hero)] leading-[.84] font-extrabold tracking-[-.012em] uppercase text-[var(--color-chalk)] [font-family:var(--font-display)]">
+              We don&apos;t sell furniture. We sell the <span className="text-[var(--color-indigo-light)]">building</span> it came from.
+            </motion.h1>
+            <motion.p {...reveal(.2)} className="mb-[34px] max-w-[52ch] text-[clamp(16px,1.5vw,19px)] leading-[1.62] font-light text-[#C3B8A8]">Every piece is cut from one named building, on a date we can tell you, and is numbered against it. When the wood from that building runs out, the record closes. Nothing is reissued, and nothing is ever made twice.</motion.p>
+            <motion.div {...reveal(.28)} className="flex flex-wrap gap-3.5">
+              <a className="inline-block border border-transparent bg-[var(--color-chalk)] px-[26px] py-[15px] text-[11px] tracking-[.16em] uppercase text-[var(--color-bitumen)] transition-colors hover:bg-[var(--color-indigo-light)] hover:text-[var(--color-chalk)] [font-family:var(--font-mono)]" href="#register">Open the register</a>
+              <a className="inline-block border border-[#5A5145] px-[26px] py-[15px] text-[11px] tracking-[.16em] uppercase text-[#C3B8A8] transition-colors hover:border-[var(--color-chalk)] hover:text-[var(--color-chalk)] [font-family:var(--font-mono)]" href="#commission">Join the list for Fanaswadi</a>
+            </motion.div>
+          </div>
+
+          <motion.aside {...reveal(.2)} className="relative max-w-[360px] border border-[var(--color-kraft-3)] bg-[var(--color-kraft)] p-[22px] pb-[18px] text-[var(--color-ink)] lg:max-w-none" aria-label="Current building record">
+            <div className="mb-4 flex items-start justify-between">
+              <div><h2 className="mb-1 text-[27px] leading-[.92] font-bold uppercase [font-family:var(--font-display)]">Fanaswadi<br />Chawl</h2><p className="text-[10.5px] tracking-[.1em] uppercase text-[var(--color-ink-soft)] [font-family:var(--font-mono)]">Girgaon, Mumbai</p></div>
+              <span className="inline-block border-[1.5px] border-current px-[9px] py-1 text-[10px] tracking-[.16em] uppercase text-[var(--color-oxide)] [font-family:var(--font-mono)] [transform:rotate(-1.5deg)]">In salvage</span>
+            </div>
+            <dl>
+              {recordRows.map(([label, value]) => <div className="flex justify-between gap-3 border-t border-[var(--color-kraft-3)] py-[7px] text-[11px] tracking-[.05em] [font-family:var(--font-mono)]" key={label}><dt className="text-[10px] tracking-[.12em] uppercase text-[var(--color-ink-soft)]">{label}</dt><dd className="m-0 font-medium">{value}</dd></div>)}
+            </dl>
+          </motion.aside>
         </div>
       </section>
-
-      <article className="w-full shrink-0 bg-[var(--color-paper)] px-6 pt-7 pb-[18px] text-[#2b2119] [font-family:var(--font-mono)] sm:w-[300px]" aria-label="Fanaswadi Chawl building record">
-        <header className="flex items-start justify-between gap-3 pb-4">
-          <div>
-            <h2 className="m-0 text-3xl leading-[.82] tracking-[-1px] uppercase [font-family:var(--font-display)]">Fanaswadi<br />Chawl</h2>
-            <p className="mt-2 mb-0 text-[11px] tracking-[1.6px] uppercase text-[#6c5740]">Girgaon, Mumbai</p>
-          </div>
-          <span className="mt-0.5 whitespace-nowrap border border-[var(--color-rust)] px-2.5 py-2 text-[11px] tracking-[1.5px] uppercase text-[var(--color-rust)] [transform:rotate(-2deg)]">In salvage</span>
-        </header>
-        <dl className="m-0">
-          {recordRows.map(([label, value]) => (
-            <div className="flex justify-between gap-4 border-t border-[#c9b891] py-2.5" key={label}>
-              <dt className="text-[10px] tracking-[1.3px] uppercase text-[#6c5740]">{label}</dt>
-              <dd className="m-0 text-right text-[11px] font-bold tracking-[.4px]">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </article>
     </main>
   )
 }

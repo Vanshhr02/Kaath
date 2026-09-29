@@ -7,10 +7,12 @@ export interface RegisterRecord {
   builtToDown: string
   species: string
   status: RegisterStatus
+  pieces: readonly (readonly [string, string])[]
+  note: string
 }
 
 export interface RegisterColumn {
-  key: keyof Pick<RegisterRecord, 'number' | 'building' | 'locality' | 'builtToDown' | 'species'> | 'status'
+  key: 'number' | 'building' | 'locality' | 'builtToDown' | 'species' | 'status'
   label: string
   className?: string
 }

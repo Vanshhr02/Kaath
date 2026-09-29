@@ -1,8 +1,14 @@
 export function RegisterSidebar() {
   return (
-    <aside className="fixed inset-y-0 left-0 z-10 flex w-[60px] flex-col border-r border-[#716a5b] bg-[var(--color-paper)] md:w-[94px]" aria-label="The register">
-      <a className="grid h-[106px] place-content-center gap-1.5 bg-[var(--color-ink)] md:h-[167px]" href="#the-register" aria-label="Open the register"><span className="relative block h-[15px] w-10 bg-[var(--color-blue)] after:absolute after:top-[5px] after:right-[7px] after:size-1.5 after:rounded-full after:bg-[var(--color-ink)] after:content-['']" /><span className="block h-[15px] w-10 bg-[var(--color-blue)]" /></a>
-      <a className="flex flex-1 items-center justify-center text-[10px] tracking-[2px] uppercase text-[#49433a] [font-family:var(--font-mono)] [writing-mode:vertical-rl] [transform:rotate(180deg)] md:text-sm md:tracking-[4px]" href="#the-register">Kaath — The Register</a>
+    <aside className="pointer-events-none fixed inset-y-0 left-0 z-[60] hidden w-[var(--rail-width)] items-center justify-center border-r border-[var(--color-kraft-3)] md:flex" aria-hidden="true">
+      <div className="absolute top-0 left-0 flex h-[112px] w-full items-center justify-center bg-[var(--color-bitumen)]">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <rect width="26" height="26" fill="#4C7A91" />
+          <rect y="11.6" width="26" height="2.8" fill="#1A1714" />
+          <circle cx="20" cy="5.6" r="2.1" fill="#1A1714" />
+        </svg>
+      </div>
+      <span className="whitespace-nowrap text-[10px] tracking-[.3em] uppercase text-[var(--color-ink-soft)] [font-family:var(--font-mono)] [writing-mode:vertical-rl] [transform:rotate(180deg)]">Kaath — record of buildings</span>
     </aside>
   )
 }

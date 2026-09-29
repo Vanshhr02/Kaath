@@ -1,18 +1,31 @@
-const navigation = ['The Register', 'Method', 'Available', 'Commissions']
+import { BrandMark } from '../common/BrandMark'
+
+const navigation = [
+  ['The register', '#register'],
+  ['Method', '#method'],
+  ['Available', '#available'],
+  ['Commissions', '#commission'],
+] as const
 
 export function Header() {
   return (
-    <header className="flex min-h-[106px] flex-wrap items-center gap-6 px-6 py-6 sm:px-10 md:h-[167px] md:min-h-0 md:flex-nowrap md:gap-[clamp(30px,7vw,128px)] md:px-[clamp(32px,6.2vw,98px)]">
-      <a className="relative w-full text-[32px] leading-[.82] tracking-[-2px] uppercase [font-family:var(--font-display)] md:w-[285px] md:text-[38px]" href="/" aria-label="Kaath home">
-        <span>Kaath</span>
-        <i className="absolute right-0 -bottom-[7px] left-0 h-0.5 bg-[var(--color-blue)]" aria-hidden="true" />
-      </a>
-      <nav className="flex w-full items-center gap-[18px] overflow-x-auto whitespace-nowrap [font-family:var(--font-mono)] md:w-auto md:gap-[clamp(22px,3vw,50px)]" aria-label="Primary navigation">
-        {navigation.map((item) => (
-          <a className="text-xs tracking-[1px] uppercase text-[var(--color-muted)] hover:text-[var(--color-cream)] focus-visible:text-[var(--color-cream)] md:text-base md:tracking-[2px]" href={`#${item.toLowerCase().replaceAll(' ', '-')}`} key={item}>{item}</a>
-        ))}
-      </nav>
-      <p className="ml-auto hidden whitespace-nowrap text-sm tracking-[1.5px] uppercase text-[var(--color-ochre)] [font-family:var(--font-mono)] xl:block"><span className="mr-2.5 inline-block size-2 rounded-full bg-[var(--color-rust)]" aria-hidden="true" /> Now dismantling — Fanaswadi, Girgaon</p>
+    <header className="sticky top-0 z-50 bg-[var(--color-bitumen)] text-[var(--color-chalk)]">
+      <div className="flex h-[88px] items-center gap-4 px-[var(--page-gutter)] md:h-[112px] md:gap-7">
+        <a className="block shrink-0 leading-none" href="#top" aria-label="Kaath — home"><BrandMark /></a>
+        <nav className="ml-auto hidden items-center gap-[26px] md:flex" aria-label="Primary">
+          {navigation.map(([label, href]) => (
+            <a className="group relative py-1.5 text-[11px] tracking-[.16em] uppercase text-[#B9AE9C] [font-family:var(--font-mono)]" href={href} key={href}>
+              {label}
+              <span className="absolute right-full bottom-0 left-0 h-px bg-[var(--color-chalk)] transition-[right] duration-300 ease-out group-hover:right-0 group-focus-visible:right-0" />
+            </a>
+          ))}
+        </nav>
+        <p className="ml-auto flex items-center gap-2 text-[10.5px] tracking-[.14em] uppercase text-[#93887A] [font-family:var(--font-mono)] md:ml-0">
+          <span className="size-1.5 shrink-0 rounded-full bg-[var(--color-oxide)] motion-safe:animate-pulse" aria-hidden="true" />
+          <span className="hidden sm:inline">Now dismantling — Fanaswadi, Girgaon</span>
+          <span className="sm:hidden">Fanaswadi</span>
+        </p>
+      </div>
     </header>
   )
 }
